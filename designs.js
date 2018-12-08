@@ -1,9 +1,4 @@
 
-// Select color input
-// Select size input
-
-// When size is submitted by the user, call makeGrid
-//seting a variable for pixel canvas
 const canvas = $("#pixel_canvas");
 
 function makeGrid(){
@@ -22,39 +17,17 @@ function makeGrid(){
     $("tr").append("<td></td>");
  
   }
+  let color=chooseColor();
+  console.log(color);
+  
 }
-//choosing color
- canvas.on("click", "td", function() {
-    let color = $("#colorPicker").val();  
-    $(this).css("background-color", color);
-   })
+function chooseColor()
+{
+ return $("#colorPicker").val();
+  
+}    
+  
 
-//removing color
- canvas.on("dblclick", "td", function() { 
-    $(this).css("background-color", "");
-  })
-
-//mousedragging
-let isDown = false;
-
-//mousedown
-canvas.on("mousedown", function() {
-		isDown = true;
-	});
-
-// releasing with mouse
-canvas.on("mouseup", function() {
-		isDown = false;
-	});
-
-//draging with mouse
-canvas.on("mouseover", "td", function() {
-		if (isDown) {
-			colour = $('input[type="color"]').val();
-   
-   $(this).css("background-color",colour);        
-		}
-	});
 
  //Start Again Button
 function clearGrid () {
