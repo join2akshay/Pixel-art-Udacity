@@ -17,9 +17,18 @@ function makeGrid(){
     $("tr").append("<td></td>");
  
   }
+  //Choose color
   let color=chooseColor();
-  console.log(color);
   
+  //Fill choosed Color on click 
+  $("#pixel_canvas").on("click", "td", function () {
+    $(this).css("background-color", color);
+  });
+  //Remove color on double click
+  $("#pixel_canvas").on("dblclick", "td", function () {
+    $(this).css("background-color", "");
+  });
+
 }
 function chooseColor()
 {
@@ -35,6 +44,8 @@ function clearGrid () {
 		$(this).css("background-color","")}
   
    )};
+
+   // Takeing Screenshot
 const takeScreenShot = function() {
 	html2canvas($("#save-canvas"), {
 	  onrendered: function(canvas) {
